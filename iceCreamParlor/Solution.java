@@ -22,19 +22,17 @@ class Result {
      */
     public static Integer icecreamParlor(int m, List<Integer> arr) {
     
-    List<Integer>[][] DP = new List[arr.max()][arr.max()];
+    
     int total = 0;
     // Write your code here
-        for(int flav = 0; flav < arr.size(); flav ++){
-            for(int flav2 = 0; flav2 < arr.size(); flav++){
-                System.out.println(DP[flav][flav2]);
-                if(DP[flav][flav2] != 1 && DP[flav2][flav] != 1){
+        for(int flav = 0; flav < arr.size()-1; flav++){
+            for(int flav2 = 0; flav2 < arr.size()-1; flav++){
+                if(arr.get(flav) + arr.get(flav2) == m){
                     total++;
-                    DP[flav][flav2] = 1;
                 }
             }
         }
-        return total;
+        return total/2;
     }
 
 }
